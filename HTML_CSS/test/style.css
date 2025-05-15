@@ -1,0 +1,14 @@
+.img_yellow{
+    border: 5px solid yellow;
+}
+.img_blue{
+    box-shadow: 5px 5px 0 0 skyblue;
+}
+
+.p_text:hover {
+    font-size: 30px;
+}
+
+.input:focus{
+    background-color: pink;
+}
