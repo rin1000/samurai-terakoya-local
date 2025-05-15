@@ -1,5 +1,5 @@
 const userWeight = 68;
-const userHight = 1.7;
-let BMI = userWeight/(userHight*userHight)
+const userHeight = 1.7;
+let bmi = userWeight/(userHight*userHight)
 
-console(BMI);
+console.log(bmi);
