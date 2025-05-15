@@ -68,6 +68,6 @@ a:hover{
         font-size: 25px;
     }
     #parent{
-        display: block;
+        flex-direction: column;
     }
 }
