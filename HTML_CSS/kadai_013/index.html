@@ -20,9 +20,7 @@
         <a href="index.html#contact">CONTACT</a>
       </nav>
       <!-- スマホ用メニューボタン -->
-      <button id="menu-sp" onclick="document.getElementById('nav-sp').style.display = 'block'">
-        <img src="images/button-menu.png" alt="ナビゲーションを開く">
-      </button>
+      <img id="menu-sp" src="images/button-menu.png" alt="ナビゲーションを開く" onclick="document.getElementById('nav-sp').style.display = 'block'">
       <!-- スマホ用ナビゲーション -->
       <div id="nav-sp">
         <button id="close" onclick="document.getElementById('nav-sp').style.display = 'none'">
@@ -30,6 +28,7 @@
         </button>
         <nav>
           <ul>
+          <li><img id="close" src="images/button-close.png" alt="ナビゲーションを閉じる" onclick="document.getElementById('nav-sp').style.display = 'none'"></li>
           <li><a id="logo-sp" href="index.html" onclick="document.getElementById('nav-sp').style.display = 'none'"><img src="images/logo-sp.png" alt="トップページに戻る"></a></li>
           <li><a class="menu" href="index.html#concept" onclick="document.getElementById('nav-sp').style.display = 'none'">CONCEPT</a></li>
           <li><a class="menu" href="index.html#product" onclick="document.getElementById('nav-sp').style.display = 'none'">PRODUCT</a></li>
