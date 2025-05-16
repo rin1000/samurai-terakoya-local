@@ -2,13 +2,13 @@ const holidays = ["正月","成人の日","建国記念日","天皇誕生日","�
 
 const num = holidays.length
 // for文の場合
-for (let i = 0; i <= num; i += 1) {
+for (let i = 0; i < num; i += 1) {
     console.log(holidays[i])
 }
 
 let i = 0;
 // while文の場合
-while (i <= num) {
-    i += 1;
+while (i < num) {
     console.log(holidays[i]);
+    i += 1;
 }
