@@ -58,7 +58,7 @@ button:hover {
 
 .list-row {
     display: flex;
-                                    align-items: center;
+    align-items: center;
 }
 
 .todo-item {
