@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://unpkg.com/react@18/umd/react.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js" crossorigin></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+  
+  <script type="text/babel">
+    const container = document.getElementById('app')
+    const root = ReactDOM.createRoot(container)
+    
+    const ControlledForm = () => {
+      const useState = React.useState
+      const [ form, setForm ] = useState({
+        qurious: []
+      })
+
+      const handleChange = e => {
+        const {name, value } = e.target
+
+        if(form.qurious.includes(value)){
+          const list = form.qurious.filter( q => q !== value )
+          setForm({
+          ...form,
+          [name]: list
+        })
+        } else {
+          const list = [
+            ...form.qurious,
+            value
+          ]
+
+          setForm({
+          ...form,
+          [name]: list
+        })
+        }
+
+        
+      }
+      
+      const handleSubmit = e => {
+        e.preventDefault()
+        console.log(form)
+      }
+
+      return (<>
+        <form onSubmit={handleSubmit}>
+          興味があるもの(複数回答可)<br />
+          <input type="checkbox" name="qurious" value="sports" onChange={handleChange} />スポーツ
+          <input type="checkbox" name="qurious" value="news" onChange={handleChange} />ニュース
+          <input type="checkbox" name="qurious" value="it" onChange={handleChange} />IT系   
+          <button>送信</button>
+        </form>
+      </>)
+    }
+
+
+    root.render(<>
+    <ControlledForm />
+    </>)
+  </script>
+
+</body>
+</html>
