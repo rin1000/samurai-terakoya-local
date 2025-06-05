@@ -1,44 +1,67 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-// import Stack from '@mui/material/Stack';
-import Button from '@mui/material/Button';
+import { useState } from "react";
+import axios from "axios";
+import "./App.css";
+import Button from "@mui/material/Button";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
+import { Person } from "@mui/icons-material";
 
 function App() {
-  const [count, setCount] = useState(0)
+  const isError = (error) => {
+    return error instanceof Error;
+  };
+
+  const [users, setUsers] = useState([]);
+  const [error, setError] = useState(null);
+
+  const fetchUsers = async () => {
+    try {
+      const response = await axios.get(
+        "https://jsonplaceholder.typicode.com/users"
+      );
+      setUsers(response.data);
+    } catch (e) {
+      if (isError(e)) {
+        setError(e);
+      }
+    }
+  };
+
+  const deleteAllUsers = () => {
+    setUsers([]);
+  };
+
+  if (error) {
+    return <div>{error.message}</div>;
+  }
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-
-      <Button variant="text">Text</Button>
-      <Button variant="contained">Contained</Button>
-      <Button variant="outlined">Outlined</Button>
-    
-
-
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    <div>
+      <List>
+        {users.map((user) => (
+          <ListItem key={user.id}>
+            <ListItemIcon>
+              <Person color="primary" sx={{ fontSize: 30 }} />
+            </ListItemIcon>
+            <ListItemText>{user.name}</ListItemText>
+          </ListItem>
+        ))}
+      </List>
+      <Button variant="contained" onClick={fetchUsers}>
+        Click!
+      </Button>
+      <Button
+        variant="contained"
+        color="secondary"
+        onClick={deleteAllUsers}
+        style={{ marginLeft: "10px" }}
+      >
+        Delete All Users
+      </Button>
+    </div>
+  );
 }
 
-export default App
+export default App;
