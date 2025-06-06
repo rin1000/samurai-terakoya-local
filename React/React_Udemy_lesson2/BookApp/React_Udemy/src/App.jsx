@@ -1,4 +1,4 @@
-import '../src/index.css';
+import './index.css';
 import { Routes, Route } from 'react-router-dom';
 import Layout from './common/Layout';
 import { useState, useEffect } from 'react'
