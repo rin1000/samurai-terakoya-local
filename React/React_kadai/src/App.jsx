@@ -34,7 +34,6 @@ export const App =() => {
     </div>
     <div className="">
       登録済み
-      
       <div>
 
         
