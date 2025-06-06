@@ -40,7 +40,7 @@ function App() {
     <>
       <Routes>
         <Route element={<Layout />}>
-        <Route index element={<BookIndex />} />
+        <Route index element={<BookIndex books = {books} />} />
         <Route path="search" element={<BookSearch books = {books} setBooks = {setBooks}/>} />
         <Route path="edit" element={<BookEdit />} >
           <Route path=":id" element={<BookDetail books = {books} setBooks = {setBooks}/>} />

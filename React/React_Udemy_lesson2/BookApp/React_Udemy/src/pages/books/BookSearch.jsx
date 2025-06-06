@@ -1,13 +1,13 @@
 import { useRef, useState } from "react";
 import { Container, Fab, TextField,
     Button, Typography, Box, 
-    Grid, Card, CardMedia, CardContent, CardActions
+    Grid, Card, CardMedia, CardContent, CardActions, Item
 } from '@mui/material'
 import { Link, useNavigate } from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AddIcon from '@mui/icons-material/Add';
 
-export const BookSearch = (books, setBooks) => {
+export const BookSearch = ({books, setBooks}) => {
     const keyword = useRef("")
     const [searchResult, setSearchResult] = useState([])
     const navigate = useNavigate() 
@@ -17,10 +17,8 @@ export const BookSearch = (books, setBooks) => {
         const baseUrl = 'https://www.googleapis.com/books/v1/volumes?'
         const params = { q: `intitle:${keyword.current.value}`, maxResults:40 }
         const queryParams = new URLSearchParams(params) // JSでクエリパラメータ生成
-        console.log("URL:"+ baseUrl + queryParams)
         // fetchでJSON取得
         const response = await fetch(baseUrl + queryParams).then( response => response.json())
-        console.log("response"+response.items)
         // 必要な情報を配列にpush
         const newList = [] // 新しい配列作成
         response.items.map( book => { // JSONで渡ってきた情報を Array.pushで配列に追加
@@ -33,19 +31,19 @@ export const BookSearch = (books, setBooks) => {
     }
 
     const addBook = card => {
-        console.log(card)
-        const newId = books.length !== 0 ? books.slice(-1)[0].id + 1 : 1
+        const newId = books.length !== 0 ? books.slice(-1)[0].id+1:1
+        
         const newBook = {
-        id: newId,
-        title: card.title,
-        description: card.description,
-        image: card.image,
-        readDate: '',
-        memo: ''
+            id: newId,
+            title: card.title,
+            description: card.description,
+            image: card.image,
+            readDate: '',
+            memo: ''
         } 
         setBooks([
-        ...books,
-        newBook
+            ...books,
+            newBook
         ])
         navigate(`/edit/${newId}`)
     }
@@ -78,7 +76,6 @@ export const BookSearch = (books, setBooks) => {
                         inputRef={keyword}
                     />
                     <Button
-                    
                         type="submit"
                         fullWidth
                         variant="contained"
@@ -90,8 +87,10 @@ export const BookSearch = (books, setBooks) => {
         </Container>
         <Container component="section" maxWidth="lg">
             <Grid container spacing={4}>
+              
                 { searchResult.map((card, index) => (
-                <Grid item key={index} xs={12} sm={6} md={4} >
+                <Grid key={index} xs={12} sm={6} md={4} >
+                  <Item>
                     <Card sx={{ height: '100%'}}>
                         <Grid container>
                             <Grid item sm={4}>
@@ -119,8 +118,10 @@ export const BookSearch = (books, setBooks) => {
                             </Grid>
                         </Grid>
                     </Card>
+                  </Item>
                 </Grid>
                 ))}
+              
             </Grid>
         </Container>
         </>

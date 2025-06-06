@@ -1,35 +1,49 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react"
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App =() => {
 
-  return (
+  const [engText ,setEngText] = useState([])
+  const [jpText ,setJpText] = useState([])
+  const [category ,setCategory] = useState([])
+
+  const onChangeEngText = (e) => {
+    setEngText(e.target.value);
+  }
+  const onChangeJpText = (e) => {
+    setJpText(e.target.value);
+  }
+
+  const category = (e) => {
+    setCategory(e.target.value);
+  }
+
+  return(
     <>
+    単語管理アプリ
+    <div className=""></div>
+    <div className="">
+      新しい単語を追加
+      <input placeholder="英語" value={engText} onChange={onChangeEngText}/>
+      <input placeholder="日本語" value={jpText} onChange={onChangeJpText}/>
+      <select name="" placeholder="カテゴリーを選択" value={category} onChange={category}>
+        <option value="1">選択肢のサンプル1</option>
+        <option value="2">選択肢のサンプル2</option>
+        <option value="3">選択肢のサンプル3</option>
+      </select>
+      <button>追加</button>
+    </div>
+    <div className="">
+      登録済み
+      
       <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+
+        
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    </div>
+    
+    
+
     </>
+    
   )
 }
-
-export default App
