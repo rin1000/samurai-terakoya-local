@@ -1,5 +1,45 @@
+import { TextField, Typography,
+Container, Grid, Box, Card,
+CardMedia, CardContent, CardActions,
+Button
+} from '@mui/material'
 import { useParams, Link, useNavigate } from 'react-router-dom'
-export const BookDetail = () => {
+import { useState } from 'react'
+import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { DatePicker } from '@mui/x-date-pickers/DatePicker';
+import ja from 'date-fns/locale/ja'
+import { format } from 'date-fns';
+
+export const BookDetail = ({ books, setBooks }) => {
+    
+    const params = useParams()
+    const navigate = useNavigate()
+
+    const book = books.find( book => {
+        return book.id === parseInt(params.id, 10)
+    })
+
+    const [value, setValue ] = useState(book.readDate)
+    const [memo, setMemo ] = useState(book.memo)
+
+    const setNewValue = newValue => {
+        setValue(format(newValue, 'yyyy/MM/dd'))
+    } 
+    
+    const updateBookInfo = bookId => {
+        const newList = books.filter( book => {
+        if(book.id === bookId){
+                book.readDate = value
+                book.memo = memo
+                return book
+            } else {
+                return book
+            }
+        })
+        setBooks(newList)
+        navigate('/')
+    }
     return(
         <>
         <Container component="section" maxWidth="md"

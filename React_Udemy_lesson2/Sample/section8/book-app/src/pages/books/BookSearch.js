@@ -7,7 +7,6 @@ import { Link, useNavigate } from 'react-router-dom'
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 import AddIcon from '@mui/icons-material/Add';
 
-
 const BookSearch = ({books, setBooks}) => {
   const keyword = useRef('')  
   const [searchResult, setSearchResult] = useState([])
@@ -30,8 +29,7 @@ const BookSearch = ({books, setBooks}) => {
   const description = book.volumeInfo.description
   newList.push({ title: title ? title : '',
     image: img ? img.thumbnail : '',
-    description: description ? description.slice(0, 40) : ''
-  })
+    description: description ? description.slice(0, 40) : ''})
 setSearchResult(newList) }) // ステートを更新
   }
 
