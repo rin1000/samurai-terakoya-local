@@ -29,7 +29,6 @@ export const App = () => {
     const newIncompleteTodos = [...incompleteTodos];
     newIncompleteTodos.splice(index, 1);
     const newCompleteTodos = [...completeTodos,incompleteTodos[index]];
-    
     setIncompleteTodos(newIncompleteTodos);
     setCompleteTodos(newCompleteTodos);
   }
