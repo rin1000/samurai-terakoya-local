@@ -11,14 +11,17 @@ export const App =() => {
 useEffect(()=>{
 const fetchWeather = async () => {
     try {
-      const response = await axios.get(
-        "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&current=temperature_2m,weather_code&timezone=Asia%2FTokyo"
-      );
+      const latitude = 35.6762;
+      const longitude = 139.6503;
+      const url = `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current=temperature_2m,weather_code&timezone=Asia/Tokyo`;
+
+
+      const response = await axios.get(url);
 
       // レスポンスをOpenWeatherMap形式に変換
         const temp = Math.round(response.data.current.temperature_2m);
         const weatherCode = response.data.current.weather_code;
-
+        console.log(response.data.current.weather_code)
         // 天気コードから説明を生成
         const getWeatherDescription = (code) => {
           if (code <= 3) return '晴れ';
@@ -35,6 +38,7 @@ const fetchWeather = async () => {
         weather: [{ description: getWeatherDescription(weatherCode) }]
       });
       console.log(response.data)
+      
     } catch (e) {
       alert(e.message);
       console.log("error")
@@ -94,7 +98,8 @@ fetchWeather()
     <>
     単語管理アプリ
     <div className="">
-      y
+      <p></p>
+      <p></p>
     </div>
     <div className="">
       新しい単語を追加
