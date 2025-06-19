@@ -1,0 +1,6 @@
+2025/06/19 13:26:00 main.go:16: test
+2025/06/19 15:32:12 users.go:33: table users has no column named email
+2025/06/19 15:59:52 users.go:33: table users has no column named email
+2025/06/19 16:02:12 users.go:33: table users has no column named email
+2025/06/19 16:03:05 users.go:33: table users has no column named email
+2025/06/19 16:03:18 users.go:33: table users has no column named email

@@ -1,0 +1,2 @@
+### 基本的なGETリクエスト
+GET http://localhost:8080/
