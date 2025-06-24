@@ -1,6 +1,8 @@
-2025/06/19 13:26:00 main.go:16: test
-2025/06/19 15:32:12 users.go:33: table users has no column named email
-2025/06/19 15:59:52 users.go:33: table users has no column named email
-2025/06/19 16:02:12 users.go:33: table users has no column named email
-2025/06/19 16:03:05 users.go:33: table users has no column named email
-2025/06/19 16:03:18 users.go:33: table users has no column named email
+2025/06/22 13:55:27 main.go:81: sql: Scan error on column index 1, name "uuid": converting driver.Value type string ("1d9d86d0-4f25-11f0-b18c-8a50157b8451") to a int: invalid syntax
+2025/06/22 14:15:16 main.go:81: sql: Scan error on column index 1, name "uuid": converting driver.Value type string ("1d9d86d0-4f25-11f0-b18c-8a50157b8451") to a int: invalid syntax
+2025/06/23 10:18:57 main.go:81: sql: Scan error on column index 1, name "uuid": converting driver.Value type string ("1d9d86d0-4f25-11f0-b18c-8a50157b8451") to a int: invalid syntax
+2025/06/23 10:19:53 main.go:81: sql: Scan error on column index 1, name "uuid": converting driver.Value type string ("1d9d86d0-4f25-11f0-b18c-8a50157b8451") to a int: invalid syntax
+2025/06/23 10:20:32 main.go:81: sql: Scan error on column index 1, name "uuid": converting driver.Value type string ("1d9d86d0-4f25-11f0-b18c-8a50157b8451") to a int: invalid syntax
+2025/06/23 10:21:48 main.go:81: sql: Scan error on column index 1, name "uuid": converting driver.Value type string ("1d9d86d0-4f25-11f0-b18c-8a50157b8451") to a int: invalid syntax
+2025/06/23 10:25:16 main.go:81: sql: Scan error on column index 1, name "uuid": converting driver.Value type string ("1d9d86d0-4f25-11f0-b18c-8a50157b8451") to a int: invalid syntax
+2025/06/23 10:26:22 main.go:81: sql: Scan error on column index 1, name "uuid": converting driver.Value type string ("1d9d86d0-4f25-11f0-b18c-8a50157b8451") to a int: invalid syntax
